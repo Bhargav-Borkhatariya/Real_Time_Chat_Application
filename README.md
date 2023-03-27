@@ -16,7 +16,7 @@ Windows: ``` lib/bin/activate``` (Not sure.)
 3. Install requirements.txt file.
 ``` pip install -r requirements.txt```
 4. Need to change mysql client credintials in setting.py file.
-``` username and pass``` 
+``` username and pass```
 5. Creat database and tables.
 ``` python manage.py makemigrations```
 ``` python manage.py migrate```
