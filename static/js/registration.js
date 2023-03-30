@@ -1,4 +1,6 @@
+// This function validates the form fields and returns a boolean indicating whether the form is valid
 function validateForm() {
+  // Define an array of objects containing information about the form fields
   const fields = [
     { id: "username", label: "Username" },
     { id: "fname", label: "First name" },
@@ -10,6 +12,7 @@ function validateForm() {
 
   let valid = true;
 
+  // Loop through each field, check if it is empty, and display an error message if necessary
   fields.forEach(field => {
     const element = document.getElementById(field.id);
     const errorElement = document.getElementById(`${field.id}-error`);
@@ -23,6 +26,7 @@ function validateForm() {
     }
   });
 
+  // Check if the password fields are valid and display error messages if necessary
   const pass1 = document.getElementById("pass1").value.trim();
   const pass2 = document.getElementById("pass2").value.trim();
   const pass1Error = document.getElementById("pass1-error");
@@ -48,35 +52,49 @@ function validateForm() {
     pass2Error.innerHTML = "";
   }
 
+  // Return whether the form is valid
   return valid;
 }
 
-
+// This function is called when the user clicks the "Sign Up" button
 function signup() {
+  // If the form is valid, send the data to the server
   if (validateForm()) {
     const form = document.querySelector("form");
     const data = new FormData(form);
     var usernameError = document.getElementById("username-error");
     var emailError = document.getElementById("email-error");
 
+    // Send a request to the server to check if the username and email already exist
     fetch(form.action, {
       method: "POST",
       body: data,
     })
       .then(response => response.json())
-      .then(({ username_exists, email_exists, success}) => {
+      .then(({ username_exists, email_exists, success }) => {
+        // If the username already exists, display an error message
         if (username_exists) {
-          // The username already exists, show an error message
           usernameError.innerHTML = "Username is already registered.";
           return false; // Prevent form submission
         }
+        // If the email already exists, display an error message
         if (email_exists) {
-          // The email already exists, show an error message
           emailError.innerHTML = "Email is already registered.";
           return false; // Prevent form submission
-        }        
-        form.reset()
+        }
+        // If the submission was successful, show a success message and reset the form
+        if (success) {
+          const email = document.getElementById("email").value;
+          const url = `otpverify?email=${encodeURIComponent(email)}`;
+          Swal.fire({
+            icon: 'success',
+            title: 'otp sent...',
+            text: 'A verification OTP has been sent to email',
+          }).then(() => {
+            window.location.href = url;
+          });
+          form.reset();
+        }
       });
   }
 }
-

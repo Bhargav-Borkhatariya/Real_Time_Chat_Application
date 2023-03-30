@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block main %}
+{% load static %}
+<script src="{% static 'js/signin.js' %}"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.7.0/sweetalert2.all.js"></script>
+<div class="w-100 h-100">
+    <div class="w-100 h-100">
+      <div class="row d-flex justify-content-center align-items-center ">
+        <div class="col-md-8 col-lg-6 col-xl-5">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            class="img-fluid" alt="Sample image">
+        </div>
+
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <p class="text-center h1 fw-bold">Log In</p>
+
+          <form method="post" id="signinform" action="{% url 'signin' %}"  class="mb-2">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <br>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter Your Username">
+                <span id="errorUsername" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <br>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter Your Password">
+                <span id="errorPass" class="text-danger"></span>
+            </div>
+    
+            <button type="button" onclick="return siginuser()" class="btn btn-primary">Log In</button>
+
+            <p class="small fw-bold mt-2 pt-1 mb-0"> Don't have an account?
+              <a href='{% url 'signup' %}' class="link-danger">Register</a></p>
+            <p class="small fw-bold mt-2 pt-1 mb-0"> Don't remember password?
+              <a href='{% url 'forgetpass' %}' class="link-danger">Forget</a></p> 
+          </form> 
+        </div>
+      </div>
+    </div>    
+  </div>
+  <footer>
+    <div class="d-flex text-white flex-column flex-md-row text-center text-md-start justify-content-between py-1 px-1 px-xl-2 bg-primary">
+      <!-- Copyright -->
+      <div>
+        Copyright © 2023. All rights reserved.
+      </div>
+      <!-- Copyright -->
+    </div>
+  </footer>
+{% endblock main %}         
