@@ -6,6 +6,7 @@ Username: {{ user.username }}
 Email: {{ user.email }}
 
 This password is auto generated, update password after login.
+
 {{ new_password }}
 
 If you did not request for this, please contact us immediately.

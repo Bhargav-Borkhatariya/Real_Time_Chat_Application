@@ -14,7 +14,7 @@
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
           <p class="text-center h1 fw-bold">Log In</p>
 
-          <form method="post" id="signinform" action="{% url 'signin' %}"  class="mb-2">
+          <form method="post" id="signinform" action="{% url 'signin' %}" class="mb-2">
             {% csrf_token %}
             
             <div class="form-group">
@@ -31,7 +31,7 @@
                 <span id="errorPass" class="text-danger"></span>
             </div>
     
-            <button type="button" onclick="return siginuser()" class="btn btn-primary">Log In</button>
+            <button type="submit" class="btn btn-primary">Log In</button>
 
             <p class="small fw-bold mt-2 pt-1 mb-0"> Don't have an account?
               <a href='{% url 'signup' %}' class="link-danger">Register</a></p>

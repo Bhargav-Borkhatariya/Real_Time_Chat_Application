@@ -55,4 +55,5 @@ function resetpass() {
 const resetForm = document.getElementById("reset-form");
 resetForm.addEventListener('submit', function(event) {
   event.preventDefault();
+  resetpass();
 });

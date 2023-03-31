@@ -186,7 +186,7 @@ def signin(request):
             if user.check_password(password):
                 # Check if user is activated
                 if user.is_active:
-                    return JsonResponse({"wrongpass": False})
+                    return render(request, 'chat/index.html', {'username': username})
                 else:
                     return JsonResponse({"notactive": True})
             else:

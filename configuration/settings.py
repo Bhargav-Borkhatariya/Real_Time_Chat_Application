@@ -40,6 +40,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+    'chat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,6 +80,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'configuration.wsgi.application'
+ASGI_APPLICATION = 'configuration.asgi.application'
 
 
 # Database
@@ -149,3 +152,13 @@ EMAIL_PORT = os.environ.get("EMAIL_PORT")
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
