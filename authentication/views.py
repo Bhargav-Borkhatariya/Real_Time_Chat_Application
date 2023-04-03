@@ -1,11 +1,12 @@
 import random
 import string
 import services.send_email as mail
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from authentication.models import ActivationOTP
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth import login
 
 
 def home(request):
@@ -186,7 +187,8 @@ def signin(request):
             if user.check_password(password):
                 # Check if user is activated
                 if user.is_active:
-                    return render(request, 'chat/index.html', {'username': username})
+                    login(request, user)
+                    return JsonResponse({'success': True})
                 else:
                     return JsonResponse({"notactive": True})
             else:

@@ -1,3 +1,4 @@
+const form = document.querySelector('#signinform');
 // Verify form data before submission
 function verifyForm() {
     const username = document.getElementById("username").value.trim();
@@ -50,7 +51,7 @@ function siginuser() {
             body: new FormData(form),
         })
             .then(response => response.json())
-            .then(({ usernotfound, wrongpass, notactive }) => {
+            .then(({ usernotfound, wrongpass, notactive, success }) => {
                 // handle the response data
                 if (usernotfound) {
                     Swal.fire({
@@ -78,15 +79,15 @@ function siginuser() {
                     pass1.value = ""
                     return false; // Prevent form submission
                 }
-                else {
-                    window.location.href = `chat`; // Add the username as a query parameter in the URL;
+                if (success) {
+                    window.location.href = "/chat";
                 }
             })
             .catch(error => console.error(error));
     }
 }
 
-const form = document.querySelector('#signinform');
+
 // Listen for the form submission event
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the form from submitting
