@@ -63,14 +63,14 @@ html {
 }
 .attach_btn {
   border-radius: 15px 0 0 15px !important;
-  background-color: rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(87, 78, 78, 0.3) !important;
   border: 0 !important;
   color: white !important;
   cursor: pointer;
 }
 .send_btn {
   border-radius: 0 15px 15px 0 !important;
-  background-color: rgba(0, 0, 0, 0.3) !important;
+  background-color: rgba(87, 78, 78, 0.3) !important;
   border: 0 !important;
   color: white !important;
   cursor: pointer;
@@ -103,6 +103,24 @@ html {
   height: 40px;
   width: 40px;
   border: 1.5px solid #f5f6fa;
+}
+.user-profile {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user_img1 {
+  position: relative;
+  height: 40px;
+  width: 40px;
+}
+
+.user-profile span {
+  margin-left: 10px;
 }
 .img_cont {
   position: relative;
@@ -210,23 +228,26 @@ html {
   right: 15px;
   display: none;
 }
+
 .action_menu ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
+
 .action_menu ul li {
-  width: 100%;
-  padding: 10px 15px;
-  margin-bottom: 5px;
-}
-.action_menu ul li i {
-  padding-right: 10px;
-}
-.action_menu ul li:hover {
+  padding: 10px;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.2);
 }
+
+.action_menu ul li:hover {
+  background-color: #030303;
+}
+
+.show {
+  display: block;
+}
+
 @media (max-width: 576px) {
   .contacts_card {
     margin-bottom: 15px !important;

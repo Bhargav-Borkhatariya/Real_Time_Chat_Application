@@ -26,6 +26,22 @@ function validateForm() {
     }
   });
 
+  // Email Validation
+  const email = document.getElementById("email").value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailError = document.getElementById("email-error")
+
+  if (email === "") {
+    emailError.textContent = 'email is required';
+    valid = false;
+  } else if (!emailRegex.test(email)) {
+    emailError.textContent = 'Please enter a valid email address';
+    valid = false;
+  } else {
+    emailError.textContent = '';
+  }
+  
+
   // Check if the password fields are valid and display error messages if necessary
   const pass1 = document.getElementById("pass1").value.trim();
   const pass2 = document.getElementById("pass2").value.trim();
@@ -98,3 +114,11 @@ function signup() {
       });
   }
 }
+
+// get the reset form element and prevent the default form submission behavior
+const form = document.querySelector("form");
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  signup();
+});
+

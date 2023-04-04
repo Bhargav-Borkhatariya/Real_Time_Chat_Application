@@ -8,5 +8,6 @@ urlpatterns = [
     path("sendotp", views.sendotp, name='sendotp'),
     path("signin", views.signin, name='signin'),
     path("forgetpass", views.forgetpass, name='forgetpass'),
+    path('logout', views.signout, name="logout"),
     path("chat/", include('chat.urls')),
 ]

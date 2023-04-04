@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from authentication.models import ActivationOTP
 from django.core.exceptions import ObjectDoesNotExist
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 
 
 def home(request):
@@ -236,3 +236,11 @@ def forgetpass(request):
 
     # If request method is GET, show the forget password form
     return render(request, "forgetpass.html")
+
+
+# Define the signout view
+def signout(request):
+    # Call the logout function with the current request object to log out the user
+    logout(request)
+    # Redirect the user to the signin page
+    return redirect('signin')
