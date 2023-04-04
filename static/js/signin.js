@@ -1,3 +1,4 @@
+const form = document.querySelector('#signinform');
 // Verify form data before submission
 function verifyForm() {
     const username = document.getElementById("username").value.trim();
@@ -27,13 +28,30 @@ function siginuser() {
     const form = document.querySelector('#signinform');
     const username = document.getElementById("username");
     const pass1 = document.getElementById("password");
+    const errorUsername = document.getElementById("errorUsername");
+    const errorPass = document.getElementById("errorPass");
+
+    if (username === "") {
+        errorUsername.innerHTML = 'Please enter your username.';
+    }
+    else {
+        errorUsername.innerHTML = '';
+    }
+    if (pass1 === "") {
+        errorPass.innerHTML = 'Please enter your password.';
+        return false;
+    }
+    else {
+        errorPass.innerHTML = '';
+    }
+
     if (verifyForm()) {
         fetch(form.action, {
             method: form.method,
             body: new FormData(form),
         })
             .then(response => response.json())
-            .then(({ usernotfound, wrongpass, notactive }) => {
+            .then(({ usernotfound, wrongpass, notactive, success }) => {
                 // handle the response data
                 if (usernotfound) {
                     Swal.fire({
@@ -61,15 +79,15 @@ function siginuser() {
                     pass1.value = ""
                     return false; // Prevent form submission
                 }
-                else {
-                    window.location.href = `signin`;
+                if (success) {
+                    window.location.href = "/chat";
                 }
             })
             .catch(error => console.error(error));
     }
 }
 
-const form = document.querySelector('#signinform');
+
 // Listen for the form submission event
 form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the form from submitting

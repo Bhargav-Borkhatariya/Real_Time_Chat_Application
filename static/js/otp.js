@@ -44,7 +44,12 @@ function verify() {
           text: 'You Entered Wrong OTP.'
         });
       } else {
-        window.location.href = `signin`;
+        Swal.fire({
+          icon: 'success',
+          title: 'OTP is Verified',
+        }).then(() => {
+          window.location.href = 'signin';
+        });
       }
     })
     .catch(error => console.error(error));

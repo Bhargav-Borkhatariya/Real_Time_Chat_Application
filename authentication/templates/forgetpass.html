@@ -5,8 +5,7 @@
     <title>Forget Passsword</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.7.0/sweetalert2.all.js"></script>
-    <script src="{% static 'js/forgetpass.js' %}"></script>
+    <script src="{% static 'js/sweetalert.js' %}"></script>
   </head>
   <body>
     <div style="padding-top: 70px;"></div>
@@ -31,7 +30,7 @@
                             <div id="emailerror" class="text-danger"></div>
                         </div>
                         <div class="form-group">
-                            <button type="button" onclick ="return resetpass()" id="reset-button" class="btn btn-lg btn-primary btn-block" type="button">Reset Password</button>
+                            <button type="submit" onclick ="return resetpass()" id="reset-button" class="btn btn-lg btn-primary btn-block">Reset Password</button>
                         </div>
                         </form>
                     </div>
@@ -42,4 +41,5 @@
         </div>
     </div>
 </body>
+<script src="{% static 'js/forgetpass.js' %}"></script>
 </html>

@@ -2,7 +2,9 @@
 It is a Chat app that made by Django and java script technology.
 
 # Functionality
-here we provide one-on-one and provide group chat.
+In this you have one page after succesfully login,
+in this you have one search bar.
+* using That search bar you can add user that is is_active and registered.
 
 # Deploy
 For run this we app need to follow steps like.

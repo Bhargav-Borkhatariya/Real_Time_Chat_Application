@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
 {% block main %}
 {% load static %}
-<script src="https://cdn.bootcdn.net/ajax/libs/limonte-sweetalert2/11.7.0/sweetalert2.all.js"></script>
-<script src="{% static 'js/registration.js' %}"></script>
+<script src="{% static 'js/sweetalert.js' %}"></script>
 <section class="vh-80">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -23,41 +22,41 @@
 
                         <div class="form-group">
                             <label for="username">Username</label><br>
-                            <input type="text" value="{{ username }}" class="form-control" id="username" name="username" placeholder="Create A Username" Required>
+                            <input type="text" value="{{ username }}" class="form-control" id="username" name="username" placeholder="Create A Username">
                             <span id="username-error" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="fname">First Name</label><br>
-                            <input type="text" value="{{ fname }}" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name" Required>
+                            <input type="text" value="{{ fname }}" class="form-control" id="fname" name="fname" placeholder="Enter Your First Name" >
                             <span id="fname-error" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="lname">Last Name</label><br>
-                            <input type="text" value="{{ lname }}" class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name" Required>
+                            <input type="text" value="{{ lname }}" class="form-control" id="lname" name="lname" placeholder="Enter Your Last Name" >
                             <span id="lname-error" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email</label><br>
-                            <input type="email" value="{{ email }}" class="form-control" id="email" name="email" placeholder="Enter Your Email Address" Required>
+                            <input type="email" value="{{ email }}" class="form-control" id="email" name="email" placeholder="Enter Your Email Address">
                             <span id="email-error" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="pass1">Password</label><br>                 
-                            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Create Your Password" Required>
+                            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Create Your Password" >
                             <span id="pass1-error" class="text-danger"></span>
                         </div>
 
                         <div class="form-group">
                             <label for="pass2">Confirm Password</label><br>
-                            <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Your Password" Required>
+                            <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm Your Password" >
                             <span id="pass2-error" class="text-danger"></span>
                         </div>
 
-                        <button type="button" class="btn btn-primary mt-0" onclick="return signup()">Sign Up</button>
+                        <button type="submit" class="btn btn-primary mt-0" onclick="return signup()">Sign Up</button>
                     </form>
                   </div>
               </div>
@@ -70,6 +69,7 @@
   <footer>
     <div class="d-flex text-white flex-column flex-md-row text-center text-md-start justify-content-between py-1 px-1 px-xl-2 bg-primary">
       <div>
+      <script src="{% static 'js/registration.js' %}"></script>
       <!-- Copyright -->
         Copyright © 2023. All rights reserved.
       <!-- Copyright -->
