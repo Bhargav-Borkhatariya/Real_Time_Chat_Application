@@ -93,3 +93,19 @@ form.addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent the form from submitting
     siginuser();
 });
+
+
+// This is function for login using google
+
+function onSignIn(googleUser) {
+    var id_token = googleUser.getAuthResponse().id_token;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/google-login');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onload = function() {
+      console.log('Signed in as: ' + xhr.responseText);
+      // Redirect to the dashboard page after successful login
+      window.location.href = '/dashboard';
+    };
+    xhr.send('idtoken=' + id_token);
+  }

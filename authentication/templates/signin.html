@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% block main %}
 {% load static %}
+<<<<<<< HEAD
+=======
+
+<!-- This is google api for login with google-->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+<!-- Sweet alert-->
+<script src="{% static 'js' %}"></script>
+
+>>>>>>> 0752f25 (Working On Google signin)
 <div class="w-100 h-100">
     <div class="w-100 h-100">
       <div class="row d-flex justify-content-center align-items-center ">
@@ -29,7 +39,19 @@
                 <span id="errorPass" class="text-danger"></span>
             </div>
     
+<<<<<<< HEAD
             <button type="submit" class="btn btn-primary">Log In</button>
+=======
+            <button type="submit" onclick="return siginuser()" class="btn btn-primary">Log In</button>
+
+            <br><br>
+            <div class="google-btn">
+              <div class="google-icon-wrapper">
+                <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+              </div>
+              <p class="btn-text"><b>Sign in with google</b></p>
+            </div>
+>>>>>>> 0752f25 (Working On Google signin)
 
             <p class="small fw-bold mt-2 pt-1 mb-0"> Don't have an account?
               <a href='{% url 'signup' %}' class="link-danger">Register</a></p>
@@ -49,4 +71,6 @@
       <!-- Copyright -->
     </div>
   </footer>
+<script src="{% static 'js/signin.js' %}"></script>
+
 {% endblock main %}         
