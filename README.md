@@ -1,5 +1,5 @@
 # Real_Time_Chat_Application
-It is a Chat app that made by Django and java script technology.
+It is a Chat app that made in Django and java script technology.
 
 # Functionality
 In this you have one page after succesfully login,
