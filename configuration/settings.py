@@ -49,6 +49,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'authentication',
+    'django.contrib.sites',
+    'crispy_bootstrap4',
+    'crispy_forms',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # include providers
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -162,3 +172,51 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'APP': {
+            'client_id': env("CLEINT_ID"),
+            'secret': env("CLEINT_SECRET"),
+            'key': ''
+        }
+    }
+}
+
+
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1 
+# Sets the number of days within which an account should be activated. 
+
+ACCOUNT_EMAIL_REQUIRED = True
+# set whether an email verification is necessary or not
+
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+# Used to prevent brute force attacks.
+
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+# User gets blocked from logging back in until a timeout.
+
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
+# value set is in seconds from the last unsuccessful login attempt
+
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+LOGIN_REDIRECT_URL = '/chat'
+
+
+ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = '/accounts/google-login/'
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

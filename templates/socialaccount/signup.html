@@ -1,0 +1,29 @@
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div style="width: 100%;">
+    <div style="display: flex; justify-content: center;">
+      <div style="width: 50%; border: 1px solid black; padding: 2rem;">
+        <h1 style="background-color: black; color: Red; text-align: center; margin-bottom: 2rem;">{% trans "Sign Up" %}</h1>
+        <p style="text-align: center;">{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to {{site_name}}. As a final step, please complete the following form:{% endblocktrans %}</p>
+
+        <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+          {% csrf_token %}
+          <div style="text-align: center; margin-top: 2rem;">
+            {{ form.email|as_crispy_field }}
+          </div>
+          <div style="text-align: center; margin-top: 1rem;">
+            {{ form.username|as_crispy_field }}
+          </div>
+          {% if redirect_field_value %}
+          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+          {% endif %}
+          <div style="text-align: center; margin-top: 2rem;">
+            <button type="submit" style="background-color: #007bff; color: white; padding: 0.5rem 2rem; border: none; border-radius: 0.25rem;">{% trans "Sign Up" %} &raquo;</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
