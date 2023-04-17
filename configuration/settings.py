@@ -174,8 +174,7 @@ CHANNEL_LAYERS = {
 }
 
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
+AUTHENTICATION_BACKENDS = [ 
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
@@ -196,7 +195,7 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 
-ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1 
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
 # Sets the number of days within which an account should be activated. 
 
 ACCOUNT_EMAIL_REQUIRED = True

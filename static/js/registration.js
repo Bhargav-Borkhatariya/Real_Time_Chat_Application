@@ -101,13 +101,12 @@ function signup() {
         // If the submission was successful, show a success message and reset the form
         if (success) {
           const email = document.getElementById("email").value;
-          const url = `otpverify?email=${encodeURIComponent(email)}`;
           Swal.fire({
             icon: 'success',
             title: 'otp sent...',
             text: 'A verification OTP has been sent to email',
           }).then(() => {
-            window.location.href = url;
+            window.location.href = `otpverify?email=${encodeURIComponent(email)}`;
           });
           form.reset();
         }
